@@ -8,14 +8,15 @@ import javax.servlet.http.*;
 public class LoginServlet extends HttpServlet{
 public void doPost(HttpServletRequest req,HttpServletResponse resp) throws IOException {
 	 String ema=req.getParameter("email");  
-	 String pas=req.getParameter("password");
-    boolean login_status= Vail.validateData(ema, pas);
+	 String pase=req.getParameter("password");
+    boolean login_status= Vail.validateData(ema, pase);
     if(login_status==true) {
+    	
     	resp.sendRedirect("profile.jsp");
 }
     else {
+    	
     	resp.sendRedirect("Loginpage.jsp");
-	
 }
 		}
 

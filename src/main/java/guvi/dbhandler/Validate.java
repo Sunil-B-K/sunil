@@ -18,15 +18,19 @@ public class Validate {
 			PreparedStatement ps=con.prepareStatement(sql);
 		// Statement ps=con.createStatement();
 			ps.setString(1, email);
+	ps.executeUpdate();
 			 ResultSet rs=ps.executeQuery(sql);
-			 String us=rs.getString(1);
-			 dbpass=us;
-			
-			ps.executeUpdate();
+			while( !rs.next());
+			{
+			 dbpass=rs.getString(1);
+			}
+		
+
 			
 			} catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
+			System.out.println("login issue");
+			e.printStackTrace();
 		}
 		return dbpass;
 	}
